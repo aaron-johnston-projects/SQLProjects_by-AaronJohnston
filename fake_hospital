@@ -1,0 +1,46 @@
+/* These are sample queries used for a sample Hospital database. None of the info is real and completely fake. Any coorelation to an actual person's health information is completely by cooincidence. */
+
+CREATE DATABASE fake_hospital;
+
+CREATE TABLE fake_patients (
+  patient_id int NOT NULL,
+  first_name varchar(255),
+  last_name varchar(255),
+  gender char(1).
+  birthdate varchar(10),
+  city varchar(255),
+  province_id (2),
+  allergies varchar(255),
+  height float(10),
+  weight float(10)
+);
+
+/* Want to check all patients that are Female and show only their first and last name? Use the following query */
+SELECT
+  [first_name],
+  [last_name],
+  [gender]
+FROM patients
+WHERE gender is 'F';
+
+/* Want to check all patients that do not have allergies in this table? Use the following query */
+SELECT
+  [first_name],
+  [last_name]
+FROM patients
+WHERE allergies IS NULL;
+
+/* Want to check all patients where their first name begins with the letter "D"? Use the following query */
+SELECT [first_name]
+FROM patients
+WHERE first_name LIKE 'D%';
+
+/* Want to update all patients that don't have allergies with 'NKA' (No Known Allergy)? Use the following query */
+UPDATE patients
+SET allergies = 'NKA'
+WHERE allergies IS NULL;
+
+/* If you want to combine the first and last name of patients into a full name column, use the following query */
+SELECT
+  CONCAT(first_name, ' ', last_name) as full_name
+FROM patients;
