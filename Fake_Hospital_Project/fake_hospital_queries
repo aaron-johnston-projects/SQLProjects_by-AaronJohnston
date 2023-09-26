@@ -38,3 +38,5 @@ SELECT
   state_name
 FROM fake_patients
   INNER JOIN province_names ON fake_patients.state_id = states_table.state_id;
+
+/* If you want to count the number of patients that are born within a specific year, you'd use the following.
