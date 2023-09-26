@@ -1,3 +1,5 @@
+/* Below are the queries to create the database and tables for the data project of 'Fake Hospital'. */
+
 CREATE DATABASE fake_hospital;
 
 CREATE TABLE fake_patients (
@@ -11,5 +13,11 @@ CREATE TABLE fake_patients (
   allergies varchar(255),
   height float(10),
   weight float(10)
+);
+
+CREATE TABE States_Table (
+  state_id char(2),
+  state_name varchar(255),
+  PRIMARY KEY (state_id)
 );
 
