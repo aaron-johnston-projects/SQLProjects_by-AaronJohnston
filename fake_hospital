@@ -9,10 +9,16 @@ CREATE TABLE fake_patients (
   gender char(1).
   birthdate varchar(10),
   city varchar(255),
-  state_id (2),
+  state_id char(2),
   allergies varchar(255),
   height float(10),
   weight float(10)
+);
+
+CREATE TABE States_Table (
+  state_id char(2),
+  state_name varchar(255),
+  PRIMARY KEY (state_id)
 );
 
 /* Want to check all patients that are Female and show only their first and last name? Use the following query */
