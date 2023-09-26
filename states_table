@@ -1,10 +1,4 @@
-/* This table and data is to be used as a reference for the data project */
-
-CREATE TABE States_Table (
-  state_id char(2),
-  state_name varchar(255),
-  PRIMARY KEY (state_id)
-);
+/* The data below is designated for the table 'States_Table'. If you'd like to see the table layout, look at the file fake_hospitalDB_tables in SQLProjects. */
 
 INSERT INTO States_Table VALUES
 ('AL','ALABAMA'),
