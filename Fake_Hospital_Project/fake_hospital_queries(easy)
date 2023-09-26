@@ -88,7 +88,7 @@ SELECT
   first_name,
   last_name,
   birth_date
-FROM patients
+FROM fake_patients
 WHERE height > value1 AND weight > value2;
 
 /* If you're wanting to view the patient's first and last name that have no allergies from a specific city, then use the following query. Replace the values with the actual city. */
@@ -96,8 +96,19 @@ SELECT
   first_name,
   last_name,
   allergies
-FROM patients
+FROM fake_patients
 WHERE
   city = value1
   AND allergies IS NOT NULL;
+
+/* If you'd like to see the unique cities in ascending order that start with a vowel (a, e, i, o, u), use the following query. */
+SELECT DISTINCT city
+FROM fake_patients
+WHERE
+  city like 'a%'
+  or city LIKE 'e%'
+  OR city LIKE 'i%'
+  OR city LIKE 'o%'
+  OR city LIKE 'u%'
+order by city ASC;
 
