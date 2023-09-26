@@ -18,7 +18,7 @@ CREATE TABLE fake_patients (
   weight float(10)
 );
 
-CREATE TABE States_Table (
+CREATE TABLE states_table (
   state_id char(2),
   state_name varchar(255),
   PRIMARY KEY (state_id)
