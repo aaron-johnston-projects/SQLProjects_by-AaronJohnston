@@ -7,20 +7,36 @@ CREATE DATABASE fake_hospital;
 
 CREATE TABLE fake_patients (
   patient_id int NOT NULL,
-  first_name varchar(255),
-  last_name varchar(255),
+  first_name varchar(30),
+  last_name varchar(30),
   gender char(1).
   birthdate DATE,
-  city varchar(255),
+  city varchar(30),
   state_id char(2),
-  allergies varchar(255),
-  height float(10),
-  weight float(10)
+  allergies varchar(80),
+  height DECIMAL(3,2),
+  weight DECIMAL(4,2)
 );
 
 CREATE TABLE states_table (
   state_id char(2),
-  state_name varchar(255),
+  state_name varchar(30),
   PRIMARY KEY (state_id)
 );
 
+CREATE TABLE fake_doctors (
+  doctor_id int NOT NULL,
+  first_name varchar(30),
+  last_name varchar(30),
+  specialty varchar(25)
+  PRIMARY KEY (doctor_id)
+);
+
+CREATE TABLE fake_admissions (
+  patient_id int NOT NULL,
+  admission_date DATE,
+  discharge_date DATE,
+  diagnosis varchar(50),
+  attending_doctor_id int,
+  PRIMARY KEY (patient_id)
+);
