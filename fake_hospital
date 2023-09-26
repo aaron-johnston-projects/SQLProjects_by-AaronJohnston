@@ -9,7 +9,7 @@ CREATE TABLE fake_patients (
   gender char(1).
   birthdate varchar(10),
   city varchar(255),
-  province_id (2),
+  state_id (2),
   allergies varchar(255),
   height float(10),
   weight float(10)
@@ -44,3 +44,5 @@ WHERE allergies IS NULL;
 SELECT
   CONCAT(first_name, ' ', last_name) as full_name
 FROM patients;
+
+/* If you want to show the patient's names with the states full name instead of the abbreviation, then you'll want to pull the data from a separate table by utilizing a INNER JOIN. */
