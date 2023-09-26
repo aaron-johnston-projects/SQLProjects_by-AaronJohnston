@@ -1,5 +1,8 @@
 /* Below are the queries to create the database and tables for the data project of 'Fake Hospital'. */
 
+/* These are sample databases used for a sample Hospital database to create a data project. None of the info is real and completely fake. Any coorelation to an actual person's health information is completely by cooincidence. */
+
+
 CREATE DATABASE fake_hospital;
 
 CREATE TABLE fake_patients (

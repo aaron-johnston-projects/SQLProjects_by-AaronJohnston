@@ -1,4 +1,3 @@
-/* These are sample databases used for a sample Hospital database to create a data project. None of the info is real and completely fake. Any coorelation to an actual person's health information is completely by cooincidence. */
 
 /* The following queries are related to the data project that uses the tables 'fake_patients', 'fake_doctors', 'fake_admissions', and 'states_table'. */
 
