@@ -32,3 +32,9 @@ SELECT
 FROM fake_patients;
 
 /* If you want to show the patient's names with the states full name instead of the abbreviation, then you'll want to pull the data from a separate table by utilizing a INNER JOIN. */
+SELECT
+  first_name,
+  last_name,
+  state_name
+FROM fake_patients
+  INNER JOIN province_names ON fake_patients.state_id = states_table.state_id;
