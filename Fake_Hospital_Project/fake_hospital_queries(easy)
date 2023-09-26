@@ -70,7 +70,7 @@ SELECT *
 FROM fake_admissions
 WHERE admission_date = discharge_date;
 
-/* IF you'd like to see the number of times a specific patient was admitted, use the following query. Just replace the value with the actual patient_id. */
+/* If you'd like to see the number of times a specific patient was admitted, use the following query. Just replace the value with the actual patient_id. */
 SELECT
   patient_id,
   COUNT(*)
@@ -81,4 +81,23 @@ WHERE patient_id = value1;
 SELECT DISTINCT city
 FROM fake_patients
 where state = value1;
+
+/* If you'd like to view the patients that are over a specific height and weigh more than a specific number use the following query. This will only show the first name, last name, and birthdate of those patients.
+If you'd like to select different columns, then replace the current columns with the desired columns. In addition, replace the value with the actual state. */
+SELECT
+  first_name,
+  last_name,
+  birth_date
+FROM patients
+WHERE height > value1 AND weight > value2;
+
+/* If you're wanting to view the patient's first and last name that have no allergies from a specific city, then use the following query. Replace the values with the actual city. */
+SELECT
+  first_name,
+  last_name,
+  allergies
+FROM patients
+WHERE
+  city = value1
+  AND allergies IS NOT NULL;
 
