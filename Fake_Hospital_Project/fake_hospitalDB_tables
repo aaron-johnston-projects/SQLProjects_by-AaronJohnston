@@ -10,7 +10,7 @@ CREATE TABLE fake_patients (
   first_name varchar(255),
   last_name varchar(255),
   gender char(1).
-  birthdate varchar(10),
+  birthdate DATE,
   city varchar(255),
   state_id char(2),
   allergies varchar(255),
