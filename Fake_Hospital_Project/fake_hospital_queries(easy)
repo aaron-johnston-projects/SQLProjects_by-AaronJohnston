@@ -41,7 +41,7 @@ FROM fake_patients
 
 /* If you want to count the number of patients that are born within a specific year, you'd use the following.
 SELECT COUNT(*)
-FROM patients
+FROM fake_patients
 WHERE YEAR(birth_date) is 2010;
 
 /* If you want to show the patient's first and last name that's the tallest, use the following query. */
@@ -49,4 +49,30 @@ SELECT
   first_name,
   last_name,
   MAX (height)
-FROM patients;
+FROM fake_patients;
+
+/* If you'd like to see patients with a specific patient_id, use the following query, just replace the value with the actual patient_id. */
+SELECT *
+FROM fake_patients
+WHERE
+  patient_id = value1
+  OR patient_id = value2
+  OR patient_id = value3
+  OR patient_id = value4
+  OR patient_id = value5;
+
+/* If you want to see the number of admissions all together, use the following query. */
+SELECT COUNT(*)
+FROM fake_admissions;
+
+/* If you'd like to see whom was admitted and discharged on the same day, use the following query. */
+SELECT *
+FROM fake_admissions
+WHERE admission_date = discharge_date;
+
+/* IF you'd like to see the number of times a specific patient was admitted, use the following query. Just replace the value with the actual patient_id. */
+SELECT
+  patient_id,
+  COUNT(*)
+FROM fake_admissions
+WHERE patient_id = value1;
