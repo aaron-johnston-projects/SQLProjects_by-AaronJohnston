@@ -116,3 +116,126 @@ order by city ASC;
 SELECT DISTINCT YEAR(birth_date)
 FROM fake_patients
 ORDER BY birth_date ASC;
+
+/* If you want to show unique first names from the fake_patients table which only occurs once in the list. Use one of the following queries. */
+/*Query 1*/
+SELECT first_name
+FROM fake_patients
+GROUP BY first_name
+HAVING COUNT(first_name) = 1
+
+/*Query 2*/
+SELECT first_name
+FROM (
+    SELECT
+      first_name,
+      count(first_name) AS occurrencies
+    FROM fake_patients
+    GROUP BY first_name
+  )
+WHERE occurrencies = 1
+
+/* If you want to show patient_id and first_name from patients where their first_name start and ends with a letter and is at least a certain characters long. Use one of the following queries. The letter that is being used in these examples is 's'
+ and the length of characters is 6.*/
+/*Query 1*/
+SELECT
+  patient_id,
+  first_name
+FROM fake_patients
+WHERE first_name LIKE 's____%s';
+
+/*Query 2*/
+SELECT
+  patient_id,
+  first_name
+FROM fake_patients
+WHERE
+  first_name LIKE 's%s'
+  AND len(first_name) >= 6;
+
+/*Query 3*/
+SELECT
+  patient_id,
+  first_name
+FROM fake_patients
+where
+  first_name like 's%'
+  and first_name like '%s'
+  and len(first_name) >= 6;
+
+/* If you want to show all of the patients grouped into weight groups.
+Show the total amount of patients in each weight group.
+Order the list by the weight group decending.
+
+For example, if they weight 100 to 109 they are placed in the 100 weight group, 110-119 = 110 weight group, etc. 
+
+Use one of the following queries.*/
+
+/*Query 1*/
+SELECT
+  COUNT(*) AS patients_in_group,
+  FLOOR(weight / 10) * 10 AS weight_group
+FROM fake_patients
+GROUP BY weight_group
+ORDER BY weight_group DESC;
+
+/*Query 2*/
+SELECT
+  TRUNCATE(weight, -1) AS weight_group,
+  count(*)
+FROM fake_patients
+GROUP BY weight_group
+ORDER BY weight_group DESC;
+
+/*Query 3*/
+SELECT
+  count(patient_id),
+  weight - weight % 10 AS weight_group
+FROM fake_patients
+GROUP BY weight_group
+ORDER BY weight_group DESC
+
+/* If you want to show patient_id, weight, height, isObese from the patients table. Display isObese as a boolean 0 or 1. Obese is defined as weight(kg)/(height(m)2) >= 30.
+weight is in units kg. height is in units cm. Use the following query. */
+SELECT patient_id, weight, height, 
+  (CASE 
+      WHEN weight/(POWER(height/100.0,2)) >= 30 THEN
+          1
+      ELSE
+          0
+      END) AS isObese
+FROM fake_patients;
+
+/* If you want to show patient_id, first_name, last_name, and attending doctor's specialty and show only the patients who has a diagnosis as 'Epilepsy' and the doctor's first name is 'Lisa'. In addition, you want to 
+check patients, admissions, and doctors tables for required information. Use the following query. */
+SELECT
+  p.patient_id,
+  p.first_name AS patient_first_name,
+  p.last_name AS patient_last_name,
+  ph.specialty AS attending_doctor_specialty
+FROM fake_patients p
+  JOIN fake_admissions a ON a.patient_id = p.patient_id
+  JOIN fake_doctors ph ON ph.doctor_id = a.attending_doctor_id
+WHERE
+  ph.first_name = 'Lisa' and
+  a.diagnosis = 'Epilepsy'
+
+/* Let's say that all patients who have gone through admissions, can see their medical documents on our site. Those patients are given a temporary password after their first admission. If you want to show the patient_id and temp_password.
+
+Let's also say that you want to have the data as:
+The password must be the following, in order:
+1. patient_id
+2. the numerical length of patient's last_name
+3. year of patient's birth_date
+
+Use the following query. */
+SELECT
+  DISTINCT P.patient_id,
+  CONCAT(
+    P.patient_id,
+    LEN(last_name),
+    YEAR(birth_date)
+  ) AS temp_password
+FROM fake_patients P
+  JOIN fake_admissions A ON A.patient_id = P.patient_id;
+
