@@ -1,3 +1,9 @@
+/* The following data was done through a various of random formulas in Excel. Inserting the data into the database. */
+
+/* The diseases were randomized using the following formula with a list of diseases =INDEX('data range',RANDBETWEEN(1,ROWS('data range')),1) */
+
+/* Below are a list of 500 fake admisstions and fake doctor ids */
+
 INSERT INTO fake_admissions 
 VALUES 
 (
