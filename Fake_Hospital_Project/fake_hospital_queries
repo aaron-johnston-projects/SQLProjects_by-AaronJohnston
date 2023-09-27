@@ -112,3 +112,7 @@ WHERE
   OR city LIKE 'u%'
 order by city ASC;
 
+/* If you'd like to see the unique birth years of the patients and order them by ascending enter the following query. */
+SELECT DISTINCT YEAR(birth_date)
+FROM fake_patients
+ORDER BY birth_date ASC;
