@@ -1,0 +1,78 @@
+/* Below is a list of fake doctors and their specialty. The names were generated from https://www.fakenamegenerator.com/. The specialty was randomized from various excel formulas. Any coorelation between the fake doctor name, fake ID, and Specialty is purely cooincidence. */
+
+INSERT INTO fake_doctors
+VALUES
+  (
+    (
+      '4178-HRUK-6302',
+      'Irene',
+      'Holt',
+      'Cardiologist'
+    ),
+    (
+      '3598-DTVC-3586',
+      'Ethel',
+      'Robles',
+      'Medical Oncologist'
+    ),
+    (
+      '8284-SFXG-6168',
+      'Mindy',
+      'Lomanto',
+      'Pulmonologists'
+    ),
+    (
+      '2642-BDYD-8530',
+      'Dominique',
+      'Risher',
+      'Radiation Oncologist'
+    ),
+    (
+      '6632-QCEI-3542',
+      'Michael',
+      'Hennen',
+      'Hepatologist'
+    ),
+    (
+      '1308-TMNK-2253',
+      'John',
+      'Woodman',
+      'Vascular Neurologist'
+    ),
+    (
+      '4252-FGWJ-2297',
+      'Philip',
+      'Crane',
+      'Urologist'
+    ),
+    (
+      '9324-UBUS-4411',
+      'Glenn',
+      'Vogt',
+      'Genitourinary'
+    ),
+    (
+      '1459-XOPU-3859',
+      'Stephen',
+      'mink',
+      'Endocrinologist'
+    ),
+    (
+      '5470-RSVZ-4370',
+      'Tobie',
+      'Snell',
+      'Primary Care'
+    ),
+    (
+      '1648-IHTF-9578',
+      'Patricia',
+      'Barr',
+      'Gynecologist'
+    ),
+    (
+      '3774-KWXL-5064',
+      'Martin',
+      'Hansen',
+      'Neurologist'
+    )
+  )
